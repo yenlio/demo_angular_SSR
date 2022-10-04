@@ -1,16 +1,52 @@
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">id</th>
-        <th scope="col">title</th>
-        <th scope="col">body</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let post of postList$| async">
-        <th scope="row">{{post.id}}</th>
-        <td>{{post.title}}</td>
-        <td>{{post.body}}</td>
-      </tr>
-    </tbody>
-  </table>
+<!-- <div id="name" type="text" #myDiv style="width: 100px;height: 100px; color: aqua;"></div> -->
+
+<input
+  type="file"
+  class="file-input"
+  #fileUpload
+/>
+<div class="file-upload">
+  {{ fileName || "No file uploaded yet." }}
+
+  <button
+    mat-mini-fab
+    color="primary"
+    class="upload-btn"
+    (click)="fileUpload.click()"
+  > 
+    upload
+  </button>
+</div>
+<!-- <div class="progress">
+
+  <mat-progress-bar class="progress-bar" mode="determinate"
+                    [value]="uploadProgress" *ngIf="uploadProgress">
+
+  </mat-progress-bar>
+
+  <mat-icon class="cancel-upload" (click)="cancelUpload()" 
+            *ngIf="uploadProgress">delete_forever</mat-icon>
+
+</div> -->
+<table
+  class="table"
+  id="name"
+  type="text"
+  #myDiv
+  style="width: 100px; height: 100px; color: rgb(92, 121, 121)"
+>
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">title</th>
+      <th scope="col">body</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let post of postList$ | async">
+      <th scope="row">{{ post.id }}</th>
+      <td>{{ post.title }}</td>
+      <td>{{ post.body }}</td>
+    </tr>
+  </tbody>
+</table>
